@@ -21,11 +21,11 @@ type Todo struct {
 var db *gorm.DB
 
 func CreateNewTodo(c *fiber.Ctx) error {
-   var todo Todo
+    var todo Todo
 
-   c.BodyParser(&todo)
-   db.Create(&Todo{Title:todo.Title,Done:todo.Done})
-   return c.Status(fiber.StatusCreated).JSON(todo)
+    c.BodyParser(&todo)
+    db.Create(&Todo{Title:todo.Title,Done:todo.Done})
+    return c.Status(fiber.StatusCreated).JSON(todo)
 }
 
 func GetAllTodos(c *fiber.Ctx) error {
